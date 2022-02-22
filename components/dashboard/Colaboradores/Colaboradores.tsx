@@ -6,20 +6,15 @@ import { RowItem } from "../../RowItem";
 import { Input } from "../../Input";
 import { TitleInfoDashboard } from "../../TitleInfoDashboard";
 import { IDataColaboradores, PropsColaboradores } from "./types";
+import { inactiveStatus } from "../../../utils/inactiveStatus";
+import { statusPortuguese } from "../../../utils/statusPortuguese";
+import { Dots } from "../../Dots";
+import { ModalColaboradores } from "./ModalColaboradores";
 
-function isActive(status: string): string {
-  if (status === "active") {
-    return "Ativo";
-  }
-  return "Inativo";
-}
-
-let inactive = (status: string): boolean => status === "inactive";
-
-export const Colaboradoes = ({
+export const Colaboradoes: React.FC<PropsColaboradores> = ({
   data = [],
   onChangeInput,
-}: PropsColaboradores) => {
+}) => {
   return (
     <>
       <Input
@@ -39,32 +34,32 @@ export const Colaboradoes = ({
         <Row key={index}>
           <RowItem
             width="150px"
-            inactive={inactive(item.status)}
+            inactiveStatus={inactiveStatus(item.status)}
             fontWeight="600"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img alt="Logo colaborador" src={item.image} />
             {item.name}
           </RowItem>
-          <RowItem width="124px" inactive={inactive(item.status)}>
+          <RowItem width="124px" inactiveStatus={inactiveStatus(item.status)}>
             {item.department}
           </RowItem>
-          <RowItem width="96px" inactive={inactive(item.status)}>
+          <RowItem width="96px" inactiveStatus={inactiveStatus(item.status)}>
             {item.role}
           </RowItem>
-          <RowItem width="142px" inactive={inactive(item.status)}>
+          <RowItem width="142px" inactiveStatus={inactiveStatus(item.status)}>
             {item.branch}
           </RowItem>
           <RowItem
             width="182px"
             color="#34423D"
-            inactive={inactive(item.status)}
+            inactiveStatus={inactiveStatus(item.status)}
             fontWeight="500"
           >
-            <span className="status">{isActive(item.status)}</span>
+            <span className="status">{statusPortuguese(item.status)}</span>
           </RowItem>
           <RowItem position="absolute" right="-80px">
-            +
+            <ModalColaboradores />
           </RowItem>
         </Row>
       ))}

@@ -1,16 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Header } from "../components/Header";
-import { SideBar } from "../components/SideBar";
-import styled, { StyledComponent } from "styled-components";
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 import { Dashboard } from "../components/Dashboard";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { useGetApi } from "./api/httpClient";
-import { Input } from "../components/Input";
-import { OptionsHeader } from "../components/OptionsHeader";
-import { Colaboradoes } from "../components/dashboard/Colaboradores/Colaboradores";
 import { Cargos } from "../components/dashboard/Cargos/Cargos";
+import { Colaboradoes } from "../components/dashboard/Colaboradores/Colaboradores";
+import { Header } from "../components/Header";
+import { OptionsHeader } from "../components/OptionsHeader";
+import { SideBar } from "../components/SideBar";
+import { useGetApi } from "./api/httpClient";
 
 export const MainSection = styled.main`
   height: calc(100vh - 62px);
@@ -47,25 +45,23 @@ const Home: NextPage = () => {
   const [fetchData, data, loading2] = useGetApi();
 
   useEffect(() => {
-    // fetchData("/roles");
+    fetchData("/agents");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [currentOption, setCurrentOption] = useState<string>("Colaboradoes");
-
-  let teste = document?.getElementById("teste") as HTMLElement;
+  let divRef = useRef<HTMLDivElement | null>(null);
+  // let teste = document?.getElementById("teste") as HTMLElement;
   const [loading, setLoading] = useState(false);
 
   function changeOpacity() {
-    teste.style.opacity = "0";
+    divRef.current && (divRef.current.style.opacity = "0");
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      teste.style.opacity = "1";
+      divRef.current && (divRef.current.style.opacity = "1");
     }, 1000);
   }
-
-  console.log(loading);
 
   return (
     <div>
@@ -87,7 +83,7 @@ const Home: NextPage = () => {
               }}
             />
             <div
-              id="teste"
+              ref={divRef}
               style={{
                 width: "100%",
                 transition: "all ease 0.2s",

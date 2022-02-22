@@ -6,9 +6,10 @@ import { RowItem } from "../../RowItem";
 import { Input } from "../../Input";
 import { IDataCargos, PropsCargos } from "./types";
 import { TitleInfoDashboard } from "../../TitleInfoDashboard";
+import { Dots } from "../../Dots";
 export const ColaboradoresStyled = styled.div``;
 
-export const Cargos = ({ data = [], onChangeInput }: PropsCargos) => {
+export const Cargos: React.FC<PropsCargos> = ({ data = [], onChangeInput }) => {
   return (
     <>
       <Input
@@ -29,7 +30,7 @@ export const Cargos = ({ data = [], onChangeInput }: PropsCargos) => {
           <RowItem width="96px">{item.agents_quantity}</RowItem>
 
           <RowItem position="absolute" right="-80px">
-            +
+            <Dots />
           </RowItem>
         </Row>
       ))}
