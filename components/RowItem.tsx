@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface IPropRow {
   width?: string;
-  inactive?: boolean;
+  inactiveStatus?: boolean;
   fontWeight?: string;
   position?: string;
   right?: string;
@@ -16,7 +16,7 @@ export const RowItem = styled.div<IPropRow>`
   position: ${({ position }) => position || "relative"};
   width: ${({ width }) => width || "120px"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
-  color: ${({ inactive }) => (inactive ? "#A3B8B0" : "#587169")};
+  color: ${({ inactiveStatus }) => (inactiveStatus ? "#A3B8B0" : "#587169")};
   display: flex;
   align-items: center;
   gap: 10px;
@@ -26,7 +26,8 @@ export const RowItem = styled.div<IPropRow>`
     width: 74px;
     height: 24px;
     padding: 4px 8px;
-    background: ${({ inactive }) => (inactive ? "#EAEFED" : "#b5f1dd")};
+    background: ${({ inactiveStatus }) =>
+      inactiveStatus ? "#EAEFED" : "#b5f1dd"};
     border-radius: 80px;
     font-weight: 500;
     display: flex;
@@ -40,7 +41,7 @@ export const RowItem = styled.div<IPropRow>`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    filter: ${({ inactive }) => inactive && "grayscale(100%)"};
-    opacity: ${({ inactive }) => inactive && "0.2"};
+    filter: ${({ inactiveStatus }) => inactiveStatus && "grayscale(100%)"};
+    opacity: ${({ inactiveStatus }) => inactiveStatus && "0.2"};
   }
 `;
