@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Dots } from "./Dots";
-import { Modal } from "./Modal";
+import { Dots } from "../dots/Dots";
+import { Modal } from "../modal/Modal";
 
 export const DotsModal: React.FC = ({ children }) => {
   return (

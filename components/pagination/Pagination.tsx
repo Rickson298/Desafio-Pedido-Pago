@@ -2,96 +2,20 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { ContainerPagination } from "./styles";
 
-interface Props {
+interface IPropsPagination {
   fullData: any[];
   currentData: any[];
   setCurrentData: React.Dispatch<React.SetStateAction<any[]>>;
   paginationInfoComplete?: boolean;
 }
-
-interface PropsStyled {
-  isFirstPage: boolean;
-  isLastPage: boolean;
-}
-
-export const PaginationStyled = styled.div<PropsStyled>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  bottom: -36px;
-
-  .items-quantity--description {
-    font-weight: 400;
-    font-size: 16px;
-    color: #587169;
-  }
-
-  .page-number {
-    width: 75px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    font-size: 16px;
-    color: #587169;
-  }
-
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: auto;
-  }
-
-  .button-forward {
-    border-radius: 0px 8px 8px 0px;
-    border: 1.4px solid
-      ${({ isLastPage }) => (isLastPage ? "#CAD6D1" : "#709085")};
-    .arrow.forward {
-      color: ${({ isLastPage }) => (isLastPage ? "#CAD6D1" : "#709085")};
-    }
-  }
-
-  .button-backward {
-    border-radius: 8px 0px 0px 8px;
-    border: 1.4px solid
-      ${({ isFirstPage }) => (isFirstPage ? "#CAD6D1" : "#709085")};
-    .arrow.back {
-      color: ${({ isFirstPage }) => (isFirstPage ? "#CAD6D1" : "#709085")};
-    }
-  }
-
-  .button-forward,
-  .button-backward {
-    transition: all ease 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 12px;
-    width: 48px;
-    height: 36px;
-    outline: none;
-    background: #fff;
-    cursor: pointer;
-    .arrow {
-      font-size: 32px;
-      transition: all ease 0.2s;
-    }
-    &:hover .arrow {
-      transform: scale(1.2);
-    }
-  }
-`;
-
 export const Pagination = ({
   fullData,
   currentData,
   setCurrentData,
   paginationInfoComplete,
-}: Props) => {
+}: IPropsPagination) => {
   let quantityShowList: number = 6;
 
   const [startCount, setStartCount] = useState<number>(0);
@@ -113,7 +37,7 @@ export const Pagination = ({
   }, [fullData, startCount, endCount]);
 
   return (
-    <PaginationStyled isFirstPage={isFirstPage} isLastPage={isLastPage}>
+    <ContainerPagination isFirstPage={isFirstPage} isLastPage={isLastPage}>
       {paginationInfoComplete && (
         <span className="items-quantity--description">
           Mostrando {currentData.length} de {fullData.length} registros
@@ -146,6 +70,6 @@ export const Pagination = ({
           <IoIosArrowForward className="arrow forward" />
         </button>
       </div>
-    </PaginationStyled>
+    </ContainerPagination>
   );
 };

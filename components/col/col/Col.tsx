@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { PropsStyleCol } from "./types";
 
-interface Props {
-  justifyContent?: string;
-}
-
-export const Col = styled.div<Props>`
+export const Col = styled.div<PropsStyleCol>`
   border: 1px solid #cad6d1;
   width: 100%;
   border-radius: 8px;
