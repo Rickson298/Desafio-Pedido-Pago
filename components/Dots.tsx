@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Modal } from "./Modal";
-import { ModalColaboradores } from "./dashboard/Colaboradores/ModalColaboradores";
 
 const DotModalStyled = styled.div`
   background: #587169;
