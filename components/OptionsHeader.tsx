@@ -42,25 +42,32 @@ const HeaderOption = styled.div<HeaderOption>`
 interface Props {
   onClick?: (option: string) => void;
 }
+interface IMap {
+  label: string;
+  endPoint: string;
+}
 
 export const OptionsHeader: React.FC<Props> = ({ onClick = () => {} }) => {
   const [width, setWidth] = useState<string>("0px");
   const [currentOption, setCurrentOption] = useState<string>("Colaboradores");
-  let options = ["Colaboradores", "Cargos"];
+  let options = [
+    { label: "Colaboradores", endPoint: "/agents" },
+    { label: "Cargos", endPoint: "roles" },
+  ];
 
   return (
     <HeaderDashboardStyled left={width}>
-      {options.map((option: string, index: number) => (
+      {options.map((option: IMap, index: number) => (
         <HeaderOption
-          color={currentOption === option ? "#34423D" : "#A3B8B0"}
+          color={currentOption === option.label ? "#34423D" : "#A3B8B0"}
           onClick={() => {
-            setCurrentOption(option);
+            setCurrentOption(option.label);
             setWidth(`${195 * index}px`);
-            onClick(option);
+            onClick(option.endPoint);
           }}
           key={index}
         >
-          {option}
+          {option.label}
         </HeaderOption>
       ))}
     </HeaderDashboardStyled>

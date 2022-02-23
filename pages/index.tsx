@@ -42,26 +42,21 @@ export const Content = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const [fetchData, data, loading2] = useGetApi();
+  const [fetchData, data, loading] = useGetApi();
+
+  const [endPointByOption, setEndPointByOption] = useState<string>("/agents");
+  let divRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    fetchData("/agents");
+    fetchData(endPointByOption);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [endPointByOption]);
 
-  const [currentOption, setCurrentOption] = useState<string>("Colaboradoes");
-  let divRef = useRef<HTMLDivElement | null>(null);
-  // let teste = document?.getElementById("teste") as HTMLElement;
-  const [loading, setLoading] = useState(false);
-
-  function changeOpacity() {
-    divRef.current && (divRef.current.style.opacity = "0");
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      divRef.current && (divRef.current.style.opacity = "1");
-    }, 1000);
-  }
+  useEffect(() => {
+    loading
+      ? divRef.current && (divRef.current.style.opacity = "0")
+      : divRef.current && (divRef.current.style.opacity = "1");
+  }, [loading]);
 
   return (
     <div>
@@ -78,8 +73,7 @@ const Home: NextPage = () => {
           <Content>
             <OptionsHeader
               onClick={(option) => {
-                changeOpacity();
-                setCurrentOption(option);
+                setEndPointByOption(option);
               }}
             />
             <div
@@ -91,7 +85,7 @@ const Home: NextPage = () => {
               }}
             >
               {!loading &&
-                (currentOption === "Colaboradores" ? (
+                (endPointByOption === "/agents" ? (
                   <Colaboradoes
                     onChangeInput={() => console.log("teste")}
                     data={data.items}
