@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { PropsStyleRow } from "./types";
 
-interface Props {
-  justifyContent?: string;
-}
-
-export const Row = styled.div<Props>`
+export const Row = styled.div<PropsStyleRow>`
   display: flex;
   align-items: center;
   width: 100%;

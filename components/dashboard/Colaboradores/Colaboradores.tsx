@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { inactiveStatus } from "../../../utils/inactiveStatus";
 import { statusPortuguese } from "../../../utils/statusPortuguese";
-import { Col } from "../../Col";
-import { ColItem } from "../../ColItem";
-import { Input } from "../../Input";
-import { Row } from "../../Row";
-import { RowItem } from "../../RowItem";
-import { TitleInfoDashboard } from "../../TitleInfoDashboard";
+import { Col } from "../../col/col/Col";
+import { ColItem } from "../../col/colItem/ColItem";
+import { Input } from "../../input/Input";
+import { Row } from "../../row/row/Row";
+import { RowItem } from "../../row/rowItem/RowItem";
+import { TitleInfoDashboard } from "../../titleInfoDashboard/TitleInfoDashboard";
 import { ModalColaboradores } from "./ModalColaboradores";
-import { Pagination } from "../../Pagination";
+import { Pagination } from "../../pagination/Pagination";
 import { IDataColaboradores, PropsColaboradores } from "./types";
 
 export const Colaboradoes: React.FC<PropsColaboradores> = ({

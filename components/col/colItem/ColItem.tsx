@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-interface IPropCol {
+interface PropsStyleColItem {
   width?: string;
 }
 
-export const ColItem = styled.div<IPropCol>`
+export const ColItem = styled.div<PropsStyleColItem>`
   display: inline-block;
   font-size: 12px;
   color: #587169;

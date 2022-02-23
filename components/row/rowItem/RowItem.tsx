@@ -1,14 +1,7 @@
 import styled from "styled-components";
+import { PropStyleRowItem } from "./types";
 
-interface IPropRow {
-  width?: string;
-  inactiveStatus?: boolean;
-  fontWeight?: string;
-  position?: string;
-  right?: string;
-}
-
-export const RowItem = styled.div<IPropRow>`
+export const RowItem = styled.div<PropStyleRowItem>`
   display: inline-block;
   font-size: 12px;
   color: #587169;

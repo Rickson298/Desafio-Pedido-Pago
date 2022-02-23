@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Col } from "../../Col";
-import { ColItem } from "../../ColItem";
-import { Dots } from "../../Dots";
-import { Input } from "../../Input";
-import { Pagination } from "../../Pagination";
-import { Row } from "../../Row";
-import { RowItem } from "../../RowItem";
-import { TitleInfoDashboard } from "../../TitleInfoDashboard";
+import { Col } from "../../col/col/Col";
+import { ColItem } from "../../col/colItem/ColItem";
+import { Dots } from "../../dots/Dots";
+import { Input } from "../../input/Input";
+import { Pagination } from "../../pagination/Pagination";
+import { Row } from "../../row/row/Row";
+import { RowItem } from "../../row/rowItem/RowItem";
+import { TitleInfoDashboard } from "../../titleInfoDashboard/TitleInfoDashboard";
 import { IDataCargos, PropsCargos } from "./types";
 
 export const ColaboradoresStyled = styled.div``;

@@ -2,12 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Dashboard } from "../components/Dashboard";
+import { Dashboard } from "../components/dashboard/Dashboard";
 import { Cargos } from "../components/dashboard/Cargos/Cargos";
 import { Colaboradoes } from "../components/dashboard/Colaboradores/Colaboradores";
-import { Header } from "../components/Header";
-import { OptionsHeader } from "../components/OptionsHeader";
-import { SideBar } from "../components/SideBar";
+import { Header } from "../components/header/Header";
+import { OptionsHeader } from "../components/optionsHeader/OptionsHeader";
+import { SideBar } from "../components/sidebar/SideBar";
 import { useGetApi } from "./api/httpClient";
 
 export const MainSection = styled.main`

@@ -37,7 +37,7 @@ export const Modal = styled.div`
     height: 33px;
   }
 
-  img {
+  .eye-icon {
     height: 23px;
   }
 `;
