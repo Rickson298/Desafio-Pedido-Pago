@@ -84,18 +84,17 @@ const Home: NextPage = () => {
                 opacity: 1,
               }}
             >
-              {!loading &&
-                (endPointByOption === "/agents" ? (
-                  <Colaboradoes
-                    onChangeInput={() => console.log("teste")}
-                    data={data.items}
-                  />
-                ) : (
-                  <Cargos
-                    onChangeInput={() => console.log("teste")}
-                    data={data.roles}
-                  />
-                ))}
+              {endPointByOption === "/agents" ? (
+                <Colaboradoes
+                  onChangeInput={() => console.log("teste")}
+                  data={data.items}
+                />
+              ) : (
+                <Cargos
+                  onChangeInput={() => console.log("teste")}
+                  data={data.roles}
+                />
+              )}
             </div>
           </Content>
         </Dashboard>
