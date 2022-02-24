@@ -70,7 +70,7 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
                 </RowItem>
                 <RowItem
                   width="182px"
-                  color="#34423D"
+                  // color="#34423D"
                   inactiveStatus={inactiveStatus(item.status)}
                   fontWeight="500"
                 >

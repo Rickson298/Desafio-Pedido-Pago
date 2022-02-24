@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from "./baseUrl";
+import { api } from "../pages/api/baseUrl";
 
 interface Props {
   fetchData: () => Promise<void>;

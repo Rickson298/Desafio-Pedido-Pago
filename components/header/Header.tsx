@@ -5,7 +5,7 @@ import { User } from "./User";
 export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
-  max-width: 1920px;
+  width: 100vw;
   height: 62px;
   border-bottom: 1px solid #eaefed;
 `;
