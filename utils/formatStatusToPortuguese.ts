@@ -1,4 +1,4 @@
-export function statusPortuguese(status: string): string {
+export function formatStatusToPortuguese(status: string): string {
   if (status === "active") {
     return "Ativo";
   }

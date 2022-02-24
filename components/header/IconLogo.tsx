@@ -9,5 +9,5 @@ export const IconLogo = styled.div`
   border-right: 1px solid #eaefed;
   background-position: center;
   background-size: contain;
-  background-image: url("./images/logo.png");
+  background-image: url("/images/logo.png");
 `;

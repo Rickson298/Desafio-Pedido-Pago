@@ -8,5 +8,6 @@ export const Label = styled.label`
   top: -12px;
   left: 20px;
   background: white;
+  border-radius: 5px;
   padding: 0px 5px;
 `;
