@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { inactiveStatus } from "../../../utils/inactiveStatus";
-import { statusPortuguese } from "../../../utils/statusPortuguese";
+import { formatStatusToPortuguese } from "../../../utils/formatStatusToPortuguese";
 import { Col } from "../../col/col/Col";
 import { ColItem } from "../../col/colItem/ColItem";
 import { Input } from "../../input/Input";
@@ -75,7 +75,7 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
                   fontWeight="500"
                 >
                   <span className="status">
-                    {statusPortuguese(item.status)}
+                    {formatStatusToPortuguese(item.status)}
                   </span>
                 </RowItem>
                 <RowItem position="absolute" right="-80px">

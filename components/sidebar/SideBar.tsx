@@ -6,7 +6,7 @@ export const SideBar = styled.aside`
   background: white;
   border: 1px solid #eaefed;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `;
