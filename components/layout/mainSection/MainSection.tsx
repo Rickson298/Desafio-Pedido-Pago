@@ -9,4 +9,7 @@ export const MainSection = styled.main`
   align-items: center;
   background: #f8faf9;
   padding: 24px;
+  @media (max-width: 550px) {
+    padding: 12px;
+  }
 `;

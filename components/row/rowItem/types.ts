@@ -1,5 +1,6 @@
 export interface PropStyleRowItem {
-  width?: string;
+  desktopWidth?: string;
+  mobileWidth?: string;
   inactiveStatus?: boolean;
   fontWeight?: string;
   position?: string;

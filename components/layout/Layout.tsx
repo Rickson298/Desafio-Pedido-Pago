@@ -5,12 +5,12 @@ import { SideBar } from "../sidebar/SideBar";
 import { H1 } from "./h1/H1";
 import { MainContent } from "./mainContent/MainContent";
 import { MainSection } from "./mainSection/MainSection";
-
+import { BiArrowBack } from "react-icons/bi";
 interface IPropsLayout {
   mainTitle: string;
   pageTitle?: string;
   height?: string;
-  iconTitle?: JSX.Element;
+  iconBack?: boolean;
 }
 
 export const Layout: React.FC<IPropsLayout> = ({
@@ -18,14 +18,14 @@ export const Layout: React.FC<IPropsLayout> = ({
   children,
   pageTitle = "Desafio Pedido Pago",
   height,
-  iconTitle,
+  iconBack,
 }) => {
   const router = useRouter();
 
   return (
     <div>
       <Head>
-        <title>{pageTitle}</title>
+        <title>{pageTitle || "Desafio Pedido Pago"}</title>
         <meta name="description" content="Desafio Pedidod Pago" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -35,14 +35,18 @@ export const Layout: React.FC<IPropsLayout> = ({
           style={{
             display: "flex",
             justifyContent: "center",
+            // overflow: "hidden",
+            // width: "100vw",
           }}
         >
           <SideBar />
           <MainSection>
             <H1>
-              <span onClick={() => router.back()} className="icon">
-                {iconTitle}
-              </span>
+              {iconBack && (
+                <span onClick={() => router.back()} className="icon">
+                  <BiArrowBack />
+                </span>
+              )}
               <span className="title">{mainTitle}</span>
             </H1>
             <MainContent justifyContent="start" height={height}>

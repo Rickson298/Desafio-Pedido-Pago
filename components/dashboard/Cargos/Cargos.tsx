@@ -25,9 +25,9 @@ export const Cargos: React.FC<PropsCargos> = ({ data = [], onChangeInput }) => {
           />
           <TitleInfoDashboard>Listagem de Cargos</TitleInfoDashboard>
           <Col justifyContent="start">
-            <ColItem width="196px">Cargo</ColItem>
-            <ColItem width="224px">Departamento</ColItem>
-            <ColItem width="96px">Colaboradores</ColItem>
+            <ColItem desktopWidth="196px">Cargo</ColItem>
+            <ColItem desktopWidth="224px">Departamento</ColItem>
+            <ColItem desktopWidth="96px">Colaboradores</ColItem>
           </Col>
           <div
             style={{
@@ -36,9 +36,9 @@ export const Cargos: React.FC<PropsCargos> = ({ data = [], onChangeInput }) => {
           >
             {currentData.map((item: IDataCargos, index: number) => (
               <Row justifyContent="start" key={index}>
-                <RowItem width="196px">{item.name}</RowItem>
-                <RowItem width="224px">{item.departament}</RowItem>
-                <RowItem width="96px">{item.agents_quantity}</RowItem>
+                <RowItem desktopWidth="196px">{item.name}</RowItem>
+                <RowItem desktopWidth="224px">{item.departament}</RowItem>
+                <RowItem desktopWidth="96px">{item.agents_quantity}</RowItem>
 
                 <RowItem position="absolute" right="-80px">
                   <Dots />

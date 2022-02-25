@@ -25,4 +25,7 @@ export const MainContent = styled.div<PropsMainContentStyled>`
   @media (max-width: 900px) {
     height: 100%;
   }
+  @media (max-width: 650px) {
+    padding: 15px 12px;
+  }
 `;

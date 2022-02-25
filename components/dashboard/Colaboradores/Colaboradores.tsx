@@ -28,11 +28,11 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
           />
           <TitleInfoDashboard>Listagem de colaboradores</TitleInfoDashboard>
           <Col>
-            <ColItem width="150px">Nome completo</ColItem>
-            <ColItem width="124px">Departamento</ColItem>
-            <ColItem width="96px">Cargo</ColItem>
-            <ColItem width="142px">Unidade</ColItem>
-            <ColItem width="182px">Status</ColItem>
+            <ColItem desktopWidth="150px">Nome completo</ColItem>
+            <ColItem desktopWidth="124px">Departamento</ColItem>
+            <ColItem desktopWidth="96px">Cargo</ColItem>
+            <ColItem desktopWidth="142px">Unidade</ColItem>
+            <ColItem desktopWidth="182px">Status</ColItem>
           </Col>
           <div
             style={{
@@ -42,7 +42,7 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
             {currentData.map((item: IDataColaboradores, index: number) => (
               <Row key={index}>
                 <RowItem
-                  width="150px"
+                  desktopWidth="150px"
                   inactiveStatus={inactiveStatus(item.status)}
                   fontWeight="600"
                 >
@@ -51,25 +51,25 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
                   {item.name}
                 </RowItem>
                 <RowItem
-                  width="124px"
+                  desktopWidth="124px"
                   inactiveStatus={inactiveStatus(item.status)}
                 >
                   {item.department}
                 </RowItem>
                 <RowItem
-                  width="96px"
+                  desktopWidth="96px"
                   inactiveStatus={inactiveStatus(item.status)}
                 >
                   {item.role}
                 </RowItem>
                 <RowItem
-                  width="142px"
+                  desktopWidth="142px"
                   inactiveStatus={inactiveStatus(item.status)}
                 >
                   {item.branch}
                 </RowItem>
                 <RowItem
-                  width="182px"
+                  desktopWidth="182px"
                   // color="#34423D"
                   inactiveStatus={inactiveStatus(item.status)}
                   fontWeight="500"
