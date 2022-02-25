@@ -23,8 +23,9 @@ const GenericInfoCardStyled = styled.div<PropsStyleGenericInfoCard>`
 export const GenericInfoCard: React.FC<PropsGenericInfoCard> = ({
   label,
   info,
+  ...rest
 }) => (
-  <GenericInfoCardStyled>
+  <GenericInfoCardStyled {...rest}>
     <Label>{label}</Label>
     {info}
   </GenericInfoCardStyled>

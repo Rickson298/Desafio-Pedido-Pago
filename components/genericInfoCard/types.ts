@@ -5,7 +5,7 @@ export interface PropsStyleGenericInfoCard {
   width?: string;
 }
 
-export interface PropsGenericInfoCard {
+export interface PropsGenericInfoCard extends PropsStyleGenericInfoCard {
   label: string;
   info: string | number;
 }

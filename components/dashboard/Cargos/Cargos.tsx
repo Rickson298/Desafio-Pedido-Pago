@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { Col } from "../../col/col/Col";
 import { ColItem } from "../../col/colItem/ColItem";
 import { Dots } from "../../dots/Dots";
+import { H3 } from "../../h3/H3";
 import { Input } from "../../input/Input";
 import { Pagination } from "../../pagination/Pagination";
 import { Row } from "../../row/row/Row";
 import { RowItem } from "../../row/rowItem/RowItem";
-import { TitleInfoDashboard } from "../../titleInfoDashboard/TitleInfoDashboard";
 import { IDataCargos, PropsCargos } from "./types";
 
 export const ColaboradoresStyled = styled.div``;
@@ -23,7 +23,7 @@ export const Cargos: React.FC<PropsCargos> = ({ data = [], onChangeInput }) => {
             placeholder="Pesquise por cargos"
             srcIcon="/icons/search.png"
           />
-          <TitleInfoDashboard>Listagem de Cargos</TitleInfoDashboard>
+          <H3>Listagem de Cargos</H3>
           <Col justifyContent="start">
             <ColItem desktopWidth="196px">Cargo</ColItem>
             <ColItem desktopWidth="224px">Departamento</ColItem>

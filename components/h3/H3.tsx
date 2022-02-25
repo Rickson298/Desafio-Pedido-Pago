@@ -5,7 +5,7 @@ interface PropsStyle {
   marginBottom?: string;
 }
 
-export const TitleInfoDashboard = styled.div<PropsStyle>`
+export const H3 = styled.div<PropsStyle>`
   font-size: 16px;
   font-weight: 600;
   color: #34423d;

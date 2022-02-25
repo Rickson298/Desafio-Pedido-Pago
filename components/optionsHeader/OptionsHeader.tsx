@@ -1,6 +1,44 @@
 import { useState } from "react";
-import { ContainerHeaderDashboar, HeaderOption } from "../modal/styles";
+import styled from "styled-components";
 import { IMapOptions, IOptionsHeaderProps } from "./types";
+
+interface PropsStyleHeader {
+  left: string;
+}
+
+const ContainerHeaderDashboar = styled.div<PropsStyleHeader>`
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  border-bottom: 2px solid #eaefed;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: #22e0a1;
+    height: 2px;
+    width: 180px;
+    bottom: -2px;
+    left: ${({ left }) => left};
+    transition: all ease 0.2s;
+  }
+`;
+
+interface PropsStyleOption {
+  color: string;
+}
+
+export const HeaderOption = styled.div<PropsStyleOption>`
+  display: flex;
+  justify-content: center;
+  color: ${({ color }) => color};
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+  width: 180px;
+  transition: all ease 0.2s;
+`;
 
 export const OptionsHeader: React.FC<IOptionsHeaderProps> = ({
   onClick = () => {},

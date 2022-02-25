@@ -5,17 +5,16 @@ import { CardColaborador } from "../../components/dashboard/infoColaborador/card
 import { CardsColaborador } from "../../components/dashboard/infoColaborador/cardsColaborador/CardsColaborador";
 import { IconProfileColaborador } from "../../components/dashboard/infoColaborador/iconProfileColaborador/IconProfileColaborador";
 import { InfoColaborador } from "../../components/dashboard/infoColaborador/infoColaborador/infoColaborador";
+import { PersonalInfo } from "../../components/dashboard/infoColaborador/personalInfo/PersonalInfo";
+import { ContainerGenericInfoCards } from "../../components/genericInfoCard/ContainerGenericInfoCards";
+import { GenericInfoCard } from "../../components/genericInfoCard/GenericInfoCard";
+import { H3 } from "../../components/h3/H3";
 import { Layout } from "../../components/layout/Layout";
-import { TitleInfoDashboard } from "../../components/titleInfoDashboard/TitleInfoDashboard";
 import { useGetApi } from "../../hooks/useGetApi";
+import { formatCpf } from "../../utils/formatCpf";
 import { formatDate } from "../../utils/formatDate";
 import { formatPhoneNumberByObject } from "../../utils/formatPhoneNumberByObject";
 import { formatStatusToPortuguese } from "../../utils/formatStatusToPortuguese";
-import { IoIosArrowBack } from "react-icons/io";
-import { Label } from "../../components/label/Label";
-import { PersonalInfo } from "../../components/dashboard/infoColaborador/personalInfo/PersonalInfo";
-import { GenericInfoCard } from "../../components/genericInfoCard/GenericInfoCard";
-import { formatCpf } from "../../utils/formatCpf";
 
 const ContainerProfileColaborador = styled.div`
   height: auto;
@@ -24,17 +23,6 @@ const ContainerProfileColaborador = styled.div`
   justify-content: start;
   align-items: center;
   gap: 12px;
-`;
-
-export const ContainerPersonalInfoCards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  width: 100%;
-  justify-content: center;
-  @media (max-width: 1005px) {
-    justify-content: start;
-  }
 `;
 
 export default function SingleColaborador() {
@@ -60,7 +48,7 @@ export default function SingleColaborador() {
           <span className="single-email">{data?.agent?.email}</span>
         </InfoColaborador>
       </ContainerProfileColaborador>
-      <TitleInfoDashboard>Informações Pessoais</TitleInfoDashboard>
+      <H3>Informações Pessoais</H3>
       <CardsColaborador>
         <CardColaborador
           cardName={data.agent?.document.type}
@@ -80,10 +68,10 @@ export default function SingleColaborador() {
         />
       </CardsColaborador>
       <PersonalInfo>
-        <TitleInfoDashboard marginTop="0px" marginBottom="24px">
+        <H3 marginTop="0px" marginBottom="24px">
           Informações Pessoais
-        </TitleInfoDashboard>
-        <ContainerPersonalInfoCards>
+        </H3>
+        <ContainerGenericInfoCards>
           <GenericInfoCard label="Departamento" info={data.agent?.department} />
           <GenericInfoCard label="Cargo" info={data.agent?.role} />
           <GenericInfoCard label="Unidade" info={data.agent?.branch} />
@@ -91,7 +79,7 @@ export default function SingleColaborador() {
             label="Status"
             info={formatStatusToPortuguese(data.agent?.status)}
           />
-        </ContainerPersonalInfoCards>
+        </ContainerGenericInfoCards>
       </PersonalInfo>
     </Layout>
   );
