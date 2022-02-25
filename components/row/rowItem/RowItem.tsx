@@ -7,13 +7,17 @@ export const RowItem = styled.div<PropStyleRowItem>`
   color: #587169;
   font-weight: 400;
   position: ${({ position }) => position || "relative"};
-  width: ${({ width }) => width || "120px"};
+  width: ${({ desktopWidth }) => desktopWidth || "120px"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
   color: ${({ inactiveStatus }) => (inactiveStatus ? "#A3B8B0" : "#587169")};
   display: flex;
   align-items: center;
   gap: 10px;
   right: ${({ right }) => right};
+
+  @media (max-width: 650px) {
+    width: ${({ mobileWidth }) => mobileWidth};
+  }
 
   .status {
     width: 74px;

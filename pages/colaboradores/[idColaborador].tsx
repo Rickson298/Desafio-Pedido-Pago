@@ -14,7 +14,7 @@ import { formatStatusToPortuguese } from "../../utils/formatStatusToPortuguese";
 import { IoIosArrowBack } from "react-icons/io";
 import { Label } from "../../components/label/Label";
 import { PersonalInfo } from "../../components/dashboard/infoColaborador/personalInfo/PersonalInfo";
-import { CardPersonalInfo } from "../../components/dashboard/infoColaborador/cardPersonalInfo/CardPersonalInfo";
+import { GenericInfoCard } from "../../components/genericInfoCard/GenericInfoCard";
 import { formatCpf } from "../../utils/formatCpf";
 
 const ContainerProfileColaborador = styled.div`
@@ -30,6 +30,7 @@ export const ContainerPersonalInfoCards = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  width: 100%;
   justify-content: center;
   @media (max-width: 1005px) {
     justify-content: start;
@@ -47,7 +48,7 @@ export default function SingleColaborador() {
 
   return (
     <Layout
-      iconTitle={<IoIosArrowBack />}
+      iconBack
       height="600px"
       pageTitle={data ? data?.agent?.name : "Carregando..."}
       mainTitle="Detalhes do Colaborador"
@@ -83,22 +84,13 @@ export default function SingleColaborador() {
           Informações Pessoais
         </TitleInfoDashboard>
         <ContainerPersonalInfoCards>
-          <CardPersonalInfo>
-            <Label>Departamento</Label>
-            {data.agent?.department}
-          </CardPersonalInfo>
-          <CardPersonalInfo>
-            <Label>Cargo</Label>
-            {data.agent?.role}
-          </CardPersonalInfo>
-          <CardPersonalInfo>
-            <Label>Unidade</Label>
-            {data.agent?.branch}
-          </CardPersonalInfo>
-          <CardPersonalInfo>
-            <Label>Status</Label>
-            {formatStatusToPortuguese(data.agent?.status)}
-          </CardPersonalInfo>
+          <GenericInfoCard label="Departamento" info={data.agent?.department} />
+          <GenericInfoCard label="Cargo" info={data.agent?.role} />
+          <GenericInfoCard label="Unidade" info={data.agent?.branch} />
+          <GenericInfoCard
+            label="Status"
+            info={formatStatusToPortuguese(data.agent?.status)}
+          />
         </ContainerPersonalInfoCards>
       </PersonalInfo>
     </Layout>

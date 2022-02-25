@@ -13,6 +13,9 @@ export const ContainerCardColaborador = styled.div`
   border: 2px solid #cad6d1;
   border-radius: 8px;
   padding: 16px;
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerInfoCardColaborador = styled.div`
