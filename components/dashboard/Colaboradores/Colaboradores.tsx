@@ -6,7 +6,7 @@ import { ColItem } from "../../col/colItem/ColItem";
 import { Input } from "../../input/Input";
 import { Row } from "../../row/row/Row";
 import { RowItem } from "../../row/rowItem/RowItem";
-import { TitleInfoDashboard } from "../../titleInfoDashboard/TitleInfoDashboard";
+import { H3 } from "../../h3/H3";
 import { ModalColaboradores } from "./ModalColaboradores";
 import { Pagination } from "../../pagination/Pagination";
 import { IDataColaboradores, PropsColaboradores } from "./types";
@@ -26,7 +26,7 @@ export const Colaboradoes: React.FC<PropsColaboradores> = ({
             placeholder="Pesquise por nome ou cpf"
             srcIcon="/icons/search.png"
           />
-          <TitleInfoDashboard>Listagem de colaboradores</TitleInfoDashboard>
+          <H3>Listagem de colaboradores</H3>
           <Col>
             <ColItem desktopWidth="150px">Nome completo</ColItem>
             <ColItem desktopWidth="124px">Departamento</ColItem>

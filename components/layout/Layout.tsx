@@ -35,8 +35,6 @@ export const Layout: React.FC<IPropsLayout> = ({
           style={{
             display: "flex",
             justifyContent: "center",
-            // overflow: "hidden",
-            // width: "100vw",
           }}
         >
           <SideBar />

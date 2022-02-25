@@ -1,13 +1,9 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
 import { Cargos } from "../components/dashboard/Cargos/Cargos";
 import { Colaboradoes } from "../components/dashboard/Colaboradores/Colaboradores";
-import { Header } from "../components/header/Header";
 import { Layout } from "../components/layout/Layout";
 import { OptionsHeader } from "../components/optionsHeader/OptionsHeader";
-import { SideBar } from "../components/sidebar/SideBar";
 import { useGetApi } from "../hooks/useGetApi";
 
 const Home: NextPage = () => {
