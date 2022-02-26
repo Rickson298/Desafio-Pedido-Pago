@@ -6,8 +6,8 @@ interface PropsMainContentStyled {
 }
 
 export const MainContent = styled.div<PropsMainContentStyled>`
-  width: 956px; //956
-  min-height: ${({ height }) => height || "770px"};
+  width: 956px;
+  min-height: ${({ height }) => height || "785px"};
   background: white;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
   border-radius: 8px;
@@ -16,7 +16,6 @@ export const MainContent = styled.div<PropsMainContentStyled>`
   justify-content: ${({ justifyContent }) => justifyContent || "center"};
   align-items: flex-start;
   padding: 30px 24px;
-  overflow: hidden;
 
   @media (max-width: 1100px) {
     width: 100%;

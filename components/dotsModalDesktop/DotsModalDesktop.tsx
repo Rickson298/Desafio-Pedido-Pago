@@ -2,7 +2,7 @@
 import { Dots } from "../dots/Dots";
 import { Modal } from "../modal/Modal";
 
-export const DotsModal: React.FC = ({ children }) => {
+export const DotsModalDesktop: React.FC = ({ children }) => {
   return (
     <div style={{ position: "relative" }}>
       <Dots />

@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const Modal = styled.div`
   width: 340px;
   transform: scale(0);
-  transform-origin: 100% -5%;
+  transform-origin: 100% 100%;
   overflow: hidden;
-  height: 132px;
   border-radius: 8px;
   padding: 24px;
   box-shadow: 0px 8px 24px rgba(165, 171, 179, 0.4);
@@ -16,28 +15,37 @@ export const Modal = styled.div`
   z-index: 2;
   flex-direction: column;
   background: white;
-  justify-content: space-around;
+  justify-content: center;
   align-items: start;
   position: absolute;
   left: -340px;
-  top: 5px;
+  bottom: 5px;
   opacity: 0;
+  gap: 34px;
   transition: all 0.4s cubic-bezier(0.175, 0, 0.32, 1.5);
+
+  .disable {
+    color: #cad6d1;
+  }
   span {
     display: flex;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
+
+    .eye-icon {
+      width: 23px;
+    }
+
+    img {
+      height: auto;
+      width: 21px;
+      border-radius: 0px;
+      margin-right: 15px;
+    }
   }
   &:hover {
     transform: scale(1);
     opacity: 1;
-  }
-
-  .trash-icon {
-    height: 33px;
-  }
-
-  .eye-icon {
-    height: 23px;
   }
 `;

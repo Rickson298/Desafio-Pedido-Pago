@@ -1,55 +1,48 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { ContainerPagination } from "./styles";
+import { IPropsPagination } from "./types";
 
-interface IPropsPagination {
-  fullData: any[];
-  currentData: any[];
-  setCurrentData: React.Dispatch<React.SetStateAction<any[]>>;
-  paginationInfoComplete?: boolean;
-}
 export const Pagination = ({
-  fullData,
-  currentData,
-  setCurrentData,
+  unpagedData,
+  pagedData,
+  setPagedData,
   paginationInfoComplete,
 }: IPropsPagination) => {
   let quantityShowList: number = 6;
 
-  const [startCount, setStartCount] = useState<number>(0);
-  const [endCount, setEndCount] = useState<number>(quantityShowList);
+  const [startGetData, setStartGetData] = useState<number>(0);
+  const [endGetData, setEndGetData] = useState<number>(quantityShowList);
 
-  let currentPage: number = endCount / quantityShowList,
-    totalPages: number = Math.ceil(fullData.length / quantityShowList),
+  let currentPage: number = endGetData / quantityShowList,
+    totalPages: number = Math.ceil(unpagedData.length / quantityShowList),
     isFirstPage: boolean = currentPage === 1,
     isLastPage: boolean = currentPage === totalPages;
 
   useEffect(() => {
-    setCurrentData(() => {
-      return fullData.slice(
-        startCount,
-        endCount > fullData.length ? fullData.length : endCount
+    setPagedData(() => {
+      return unpagedData.slice(
+        startGetData,
+        endGetData > unpagedData.length ? unpagedData.length : endGetData
       );
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fullData, startCount, endCount]);
+  }, [unpagedData, startGetData, endGetData]);
 
   return (
     <ContainerPagination isFirstPage={isFirstPage} isLastPage={isLastPage}>
       {paginationInfoComplete && (
         <span className="items-quantity--description">
-          Mostrando {currentData.length} de {fullData.length} registros
+          Mostrando {pagedData.length} de {unpagedData.length} registros
         </span>
       )}
       <div className="buttons">
         <button
           className="button-backward"
           onClick={() => {
-            if (startCount > 0) {
-              setStartCount((prevState) => prevState - quantityShowList);
-              setEndCount((prevState) => prevState - quantityShowList);
+            if (startGetData > 0) {
+              setStartGetData((prevState) => prevState - quantityShowList);
+              setEndGetData((prevState) => prevState - quantityShowList);
             }
           }}
         >
@@ -61,9 +54,9 @@ export const Pagination = ({
         <button
           className="button-forward"
           onClick={() => {
-            if (endCount < fullData.length) {
-              setStartCount((prevState) => prevState + quantityShowList);
-              setEndCount((prevState) => prevState + quantityShowList);
+            if (endGetData < unpagedData.length) {
+              setStartGetData((prevState) => prevState + quantityShowList);
+              setEndGetData((prevState) => prevState + quantityShowList);
             }
           }}
         >

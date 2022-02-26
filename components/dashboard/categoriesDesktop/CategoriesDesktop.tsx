@@ -2,11 +2,11 @@ import { useState } from "react";
 import styled from "styled-components";
 import { IMapOptions, IOptionsHeaderProps } from "./types";
 
-interface PropsStyleHeader {
+interface PropsStyleCategories {
   left: string;
 }
 
-const ContainerHeaderDashboar = styled.div<PropsStyleHeader>`
+const ContainerCategories = styled.div<PropsStyleCategories>`
   width: 100%;
   display: flex;
   gap: 15px;
@@ -25,11 +25,11 @@ const ContainerHeaderDashboar = styled.div<PropsStyleHeader>`
   }
 `;
 
-interface PropsStyleOption {
+interface PropsStyleCategory {
   color: string;
 }
 
-export const HeaderOption = styled.div<PropsStyleOption>`
+export const Category = styled.div<PropsStyleCategory>`
   display: flex;
   justify-content: center;
   color: ${({ color }) => color};
@@ -40,7 +40,7 @@ export const HeaderOption = styled.div<PropsStyleOption>`
   transition: all ease 0.2s;
 `;
 
-export const OptionsHeader: React.FC<IOptionsHeaderProps> = ({
+export const CategoriesDesktop: React.FC<IOptionsHeaderProps> = ({
   onClick = () => {},
 }) => {
   const [width, setWidth] = useState<string>("0px");
@@ -51,9 +51,9 @@ export const OptionsHeader: React.FC<IOptionsHeaderProps> = ({
   ];
 
   return (
-    <ContainerHeaderDashboar left={width}>
+    <ContainerCategories left={width}>
       {options.map((option: IMapOptions, index: number) => (
-        <HeaderOption
+        <Category
           color={currentOption === option.label ? "#34423D" : "#A3B8B0"}
           onClick={() => {
             setCurrentOption(option.label);
@@ -63,8 +63,8 @@ export const OptionsHeader: React.FC<IOptionsHeaderProps> = ({
           key={index}
         >
           {option.label}
-        </HeaderOption>
+        </Category>
       ))}
-    </ContainerHeaderDashboar>
+    </ContainerCategories>
   );
 };
