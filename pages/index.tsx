@@ -1,16 +1,20 @@
 import type { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
-import { Cargos } from "../components/dashboard/Cargos/Cargos";
-import { Colaboradoes } from "../components/dashboard/Colaboradores/Colaboradores";
+import { ListagemColaboradores } from "../components/dashboard/colaboradores/listagemColaboradores/ListagemColaboradores";
 import { Layout } from "../components/layout/Layout";
-import { OptionsHeader } from "../components/optionsHeader/OptionsHeader";
+import { CategoriesDesktop } from "../components/dashboard/categoriesDesktop/CategoriesDesktop";
 import { useGetApi } from "../hooks/useGetApi";
+import { Dots } from "../components/dots/Dots";
+import { ModalMobileCategories } from "../components/dashboard/categoriesMobile/modalMobileCategories/ModalMobileCategories";
+import { CategoriesMobile } from "../components/dashboard/categoriesMobile/categoriesMobile/CategoriesMobile";
+import useWindowSize from "../hooks/useWindowSize";
+import { ListagemCargos } from "../components/dashboard/cargos/listagemCargos/ListagemCargos";
 
 const Home: NextPage = () => {
   const [fetchData, data, loading] = useGetApi();
-
   const [endPointByOption, setEndPointByOption] = useState<string>("/agents");
   let divRef = useRef<HTMLDivElement | null>(null);
+  const { windowWidth }: { windowWidth: any } = useWindowSize();
 
   useEffect(() => {
     fetchData(endPointByOption);
@@ -23,13 +27,30 @@ const Home: NextPage = () => {
       : divRef.current && (divRef.current.style.opacity = "1");
   }, [loading]);
 
+  const [isOpenModalMobile, setIsOpenModalMobile] = useState(false);
+
   return (
     <Layout mainTitle="Organização">
-      <OptionsHeader
-        onClick={(option) => {
-          setEndPointByOption(option);
-        }}
-      />
+      {windowWidth > 750 ? (
+        <CategoriesDesktop
+          onClick={(option) => {
+            setEndPointByOption(option);
+          }}
+        />
+      ) : (
+        <>
+          <CategoriesMobile>
+            {endPointByOption == "/agents" ? "Colaboradores" : "Cargos"}
+            <Dots onClick={() => setIsOpenModalMobile(true)} />
+          </CategoriesMobile>
+          <ModalMobileCategories
+            setEndPointByOption={setEndPointByOption}
+            setIsOpenModalMobile={setIsOpenModalMobile}
+            isOpenModalMobile={isOpenModalMobile}
+          />
+        </>
+      )}
+
       <div
         ref={divRef}
         style={{
@@ -39,12 +60,12 @@ const Home: NextPage = () => {
         }}
       >
         {endPointByOption === "/agents" ? (
-          <Colaboradoes
+          <ListagemColaboradores
             onChangeInput={() => console.log("teste")}
             data={data.items}
           />
         ) : (
-          <Cargos
+          <ListagemCargos
             onChangeInput={() => console.log("teste")}
             data={data.roles}
           />

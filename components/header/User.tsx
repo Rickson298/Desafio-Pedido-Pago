@@ -9,8 +9,20 @@ export const User = styled.div`
   width: 250px;
   border-left: 1px solid #eaefed;
 
+  @media (max-width: 650px) {
+    width: auto;
+    position: absolute;
+    border-left: none;
+    left: 16px;
+  }
+
   .container-user--data {
     display: flex;
+    flex-direction: column;
+
+    @media (max-width: 650px) {
+      display: none;
+    }
   }
 
   .icon-user {

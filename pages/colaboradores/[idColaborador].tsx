@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import styled from "styled-components";
-import { CardColaborador } from "../../components/dashboard/infoColaborador/cardColaborador/cardColaborador/CardColaborador";
-import { CardsColaborador } from "../../components/dashboard/infoColaborador/cardsColaborador/CardsColaborador";
-import { IconProfileColaborador } from "../../components/dashboard/infoColaborador/iconProfileColaborador/IconProfileColaborador";
-import { InfoColaborador } from "../../components/dashboard/infoColaborador/infoColaborador/infoColaborador";
-import { PersonalInfo } from "../../components/dashboard/infoColaborador/personalInfo/PersonalInfo";
+import { CardColaborador } from "../../components/dashboard/detalhesColaborador/cardColaborador/cardColaborador/CardColaborador";
+import { CardsColaborador } from "../../components/dashboard/detalhesColaborador/cardsColaborador/CardsColaborador";
+import { IconProfileColaborador } from "../../components/dashboard/detalhesColaborador/iconProfileColaborador/IconProfileColaborador";
+import { InfoColaborador } from "../../components/dashboard/detalhesColaborador/infoColaborador/infoColaborador";
+import { PersonalInfo } from "../../components/dashboard/detalhesColaborador/personalInfo/PersonalInfo";
 import { ContainerGenericInfoCards } from "../../components/genericInfoCard/ContainerGenericInfoCards";
 import { GenericInfoCard } from "../../components/genericInfoCard/GenericInfoCard";
 import { H3 } from "../../components/h3/H3";

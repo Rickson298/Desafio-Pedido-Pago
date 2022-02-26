@@ -10,4 +10,8 @@ export const IconLogo = styled.div`
   background-position: center;
   background-size: contain;
   background-image: url("/images/logo.png");
+
+  @media (max-width: 650px) {
+    border: none;
+  }
 `;

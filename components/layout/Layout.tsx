@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Header } from "../header/Header";
 import { SideBar } from "../sidebar/SideBar";
-import { H1 } from "./h1/H1";
+import { H1 } from "../h1/H1";
 import { MainContent } from "./mainContent/MainContent";
 import { MainSection } from "./mainSection/MainSection";
 import { BiArrowBack } from "react-icons/bi";
@@ -23,10 +23,15 @@ export const Layout: React.FC<IPropsLayout> = ({
   const router = useRouter();
 
   return (
-    <div>
+    <div
+      style={{
+        overflow: "hidden",
+      }}
+    >
       <Head>
         <title>{pageTitle || "Desafio Pedido Pago"}</title>
         <meta name="description" content="Desafio Pedidod Pago" />
+        <meta name="theme-color" content="#034AFD" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>

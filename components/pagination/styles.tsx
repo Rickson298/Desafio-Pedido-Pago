@@ -9,8 +9,9 @@ export const ContainerPagination = styled.div<PropsStyledPagination>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  bottom: -36px;
+  margin: 36px 0px 24px 0px;
+  /* position: relative;
+  bottom: -36px; */
 
   .items-quantity--description {
     font-weight: 400;

@@ -35,6 +35,7 @@ const ContainerDotModal = styled.div`
   height: 28px;
   width: 28px;
   display: flex;
+  margin-left: auto;
   justify-content: center;
   transition: all ease 0.2s;
   border-radius: 4px;
@@ -49,8 +50,8 @@ const ContainerDotModal = styled.div`
   }
 `;
 
-export const Dots = () => (
-  <ContainerDotModal>
+export const Dots = ({ ...rest }) => (
+  <ContainerDotModal {...rest}>
     <DotModalStyled />
   </ContainerDotModal>
 );
