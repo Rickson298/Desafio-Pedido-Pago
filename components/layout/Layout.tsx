@@ -1,19 +1,23 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Header } from "../header/Header";
-import { SideBar } from "../sidebar/SideBar";
-import { H1 } from "../h1/H1";
+import { Header } from "../molecules/header/Header";
+import { SideBar } from "../atoms/sidebar/SideBar";
 import { MainContent } from "./mainContent/MainContent";
 import { MainSection } from "./mainSection/MainSection";
 import { BiArrowBack } from "react-icons/bi";
+import { H1 } from "../atoms/h1/H1";
+import { memo } from "react";
+import Link from "next/link";
+
 interface IPropsLayout {
   mainTitle: string;
   pageTitle?: string;
   height?: string;
   iconBack?: boolean;
+  children: JSX.Element;
 }
 
-export const Layout: React.FC<IPropsLayout> = ({
+const LayoutComponent: React.FC<IPropsLayout> = ({
   mainTitle,
   children,
   pageTitle = "Desafio Pedido Pago",
@@ -32,7 +36,7 @@ export const Layout: React.FC<IPropsLayout> = ({
         <title>{pageTitle || "Desafio Pedido Pago"}</title>
         <meta name="description" content="Desafio Pedidod Pago" />
         <meta name="theme-color" content="#034AFD" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
       <body>
         <Header username="Rickson Oliveira" />
@@ -46,9 +50,11 @@ export const Layout: React.FC<IPropsLayout> = ({
           <MainSection>
             <H1>
               {iconBack && (
-                <span onClick={() => router.back()} className="icon">
-                  <BiArrowBack />
-                </span>
+                <Link href="/">
+                  <a className="icon">
+                    <BiArrowBack />
+                  </a>
+                </Link>
               )}
               <span className="title">{mainTitle}</span>
             </H1>
@@ -61,3 +67,5 @@ export const Layout: React.FC<IPropsLayout> = ({
     </div>
   );
 };
+
+export const Layout = memo(LayoutComponent);
