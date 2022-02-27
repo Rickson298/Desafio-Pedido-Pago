@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 
 export default function useWindowSize() {
-  const hasWindow = typeof window !== "undefined";
+  const hasWindow: boolean = typeof window !== "undefined";
 
   function getWindowDimensions() {
-    const windowWidth: number | null = hasWindow ? window.innerWidth : null;
-    const windowHeight: number | null = hasWindow ? window.innerHeight : null;
+    const windowWidth: number | undefined = hasWindow
+      ? window.innerWidth
+      : undefined;
+    const windowHeight: number | undefined = hasWindow
+      ? window.innerHeight
+      : undefined;
     return {
       windowWidth,
       windowHeight,

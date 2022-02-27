@@ -1,20 +1,20 @@
 import type { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
-import { ListagemColaboradores } from "../components/dashboard/colaboradores/listagemColaboradores/ListagemColaboradores";
+import { CategoriesMobile } from "../components/atoms/categoriesMobile/CategoriesMobile";
+import { Dots } from "../components/atoms/dots/Dots";
 import { Layout } from "../components/layout/Layout";
-import { CategoriesDesktop } from "../components/dashboard/categoriesDesktop/CategoriesDesktop";
+import { CategoriesDesktop } from "../components/molecules/categoriesDesktop/CategoriesDesktop";
+import { ModalMobileCategories } from "../components/molecules/modalMobileCategories/ModalMobileCategories";
+import { ListagemCargos } from "../components/organisms/listagemCargos/ListagemCargos";
+import { ListagemColaboradores } from "../components/organisms/listagemColaboradores/ListagemColaboradores";
 import { useGetApi } from "../hooks/useGetApi";
-import { Dots } from "../components/dots/Dots";
-import { ModalMobileCategories } from "../components/dashboard/categoriesMobile/modalMobileCategories/ModalMobileCategories";
-import { CategoriesMobile } from "../components/dashboard/categoriesMobile/categoriesMobile/CategoriesMobile";
 import useWindowSize from "../hooks/useWindowSize";
-import { ListagemCargos } from "../components/dashboard/cargos/listagemCargos/ListagemCargos";
 
 const Home: NextPage = () => {
   const [fetchData, data, loading] = useGetApi();
   const [endPointByOption, setEndPointByOption] = useState<string>("/agents");
-  let divRef = useRef<HTMLDivElement | null>(null);
-  const { windowWidth }: { windowWidth: any } = useWindowSize();
+  const divRef = useRef<HTMLDivElement | null>(null);
+  const { windowWidth }: { windowWidth?: number } = useWindowSize();
 
   useEffect(() => {
     fetchData(endPointByOption);
@@ -31,46 +31,48 @@ const Home: NextPage = () => {
 
   return (
     <Layout mainTitle="Organização">
-      {windowWidth > 750 ? (
-        <CategoriesDesktop
-          onClick={(option) => {
-            setEndPointByOption(option);
-          }}
-        />
-      ) : (
-        <>
-          <CategoriesMobile>
-            {endPointByOption == "/agents" ? "Colaboradores" : "Cargos"}
-            <Dots onClick={() => setIsOpenModalMobile(true)} />
-          </CategoriesMobile>
-          <ModalMobileCategories
-            setEndPointByOption={setEndPointByOption}
-            setIsOpenModalMobile={setIsOpenModalMobile}
-            isOpenModalMobile={isOpenModalMobile}
-          />
-        </>
-      )}
-
-      <div
-        ref={divRef}
-        style={{
-          width: "100%",
-          transition: "all ease 0.2s",
-          opacity: 1,
-        }}
-      >
-        {endPointByOption === "/agents" ? (
-          <ListagemColaboradores
-            onChangeInput={() => console.log("teste")}
-            data={data.items}
+      <>
+        {windowWidth && windowWidth > 750 ? (
+          <CategoriesDesktop
+            onClick={(option) => {
+              setEndPointByOption(option);
+            }}
           />
         ) : (
-          <ListagemCargos
-            onChangeInput={() => console.log("teste")}
-            data={data.roles}
-          />
+          <>
+            <CategoriesMobile>
+              {endPointByOption == "/agents" ? "Colaboradores" : "Cargos"}
+              <Dots onClick={() => setIsOpenModalMobile(true)} />
+            </CategoriesMobile>
+            <ModalMobileCategories
+              setEndPointByOption={setEndPointByOption}
+              setIsOpenModalMobile={setIsOpenModalMobile}
+              isOpenModalMobile={isOpenModalMobile}
+            />
+          </>
         )}
-      </div>
+
+        <div
+          ref={divRef}
+          style={{
+            width: "100%",
+            transition: "all ease 0.2s",
+            opacity: 1,
+          }}
+        >
+          {endPointByOption === "/agents" ? (
+            <ListagemColaboradores
+              onChangeInput={() => console.log("teste")}
+              data={data.items}
+            />
+          ) : (
+            <ListagemCargos
+              onChangeInput={() => console.log("teste")}
+              data={data.roles}
+            />
+          )}
+        </div>
+      </>
     </Layout>
   );
 };
