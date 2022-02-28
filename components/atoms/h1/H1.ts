@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const H1 = styled.div`
+export const H1 = styled.h1`
   width: 956px;
   display: flex;
   align-items: center;
