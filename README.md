@@ -2,6 +2,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Live demo: https://desafio-pedido-pago.vercel.app/
 
+## Design Explanations
+Component structure
+I chose to use the Atomic Design model to separate the components, in my opinion it's a scalable model that allows the location and use of reusable components in a more understandable way
+Custom hooks
+useGetApi: Returns an array of three positions, the first is a function that will do our request, it accepts one parameter that in this case is the URL of the request, I didn't make it receive more parameters like a query because this project doesn't need this kind of parameter, but it's easily implemented. The second position is a state that holds the data returned in the api. And lastly, a state that returns the loading of the request 
+
+useWindowSize: Returns an object with two items, the first is the width of the user window (widthWindow) and the second is the height of the user window (heightWindow)
+
+Scripts
+Dev: Starts the local server for the project;
+test: Starts the tests with JEST ignoring the Cypress tests.
+cypress:open: Opens the cypress test window.
+
+
 ## Technologies and tools used:
 `React.JS (with Next.Js)`
 `Javascript (with TypeScript)`
