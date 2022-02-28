@@ -1,8 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Live demo: https://desafio-pedido-pago.vercel.app/
+
+## Technologies and tools used:
+`React.JS (with Next.Js)`
+`Javascript (with TypeScript)`
+`Styled-components`
+`Axios`
+`EsLint`
+`Prettier`
+
 ## Getting Started
 
-First, run the development server:
+First, run `npm install` and the development server:
 
 ```bash
 npm run dev
