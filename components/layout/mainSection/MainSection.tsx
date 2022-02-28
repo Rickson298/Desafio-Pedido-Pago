@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainSection = styled.main`
+export const MainSection = styled.section`
   min-height: calc(100vh - 62px);
   width: 100%;
   display: flex;

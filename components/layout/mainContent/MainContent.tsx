@@ -5,7 +5,7 @@ interface PropsMainContentStyled {
   justifyContent?: string;
 }
 
-export const MainContent = styled.div<PropsMainContentStyled>`
+export const MainContent = styled.main<PropsMainContentStyled>`
   width: 956px;
   min-height: ${({ height }) => height || "785px"};
   background: white;
