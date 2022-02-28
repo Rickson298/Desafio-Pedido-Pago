@@ -19,7 +19,8 @@ export const Container = styled.div`
   }
 
   .eye-icon {
-    height: 23px;
+    margin-left: 3px;
+    width: 23px;
   }
 
   .center {

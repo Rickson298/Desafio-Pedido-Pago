@@ -31,11 +31,11 @@ export const ModalDesktop = styled.div`
   button {
     display: flex;
     align-items: center;
-    gap: 5px;
     cursor: pointer;
 
     .eye-icon {
-      width: 23px;
+      margin-left: 3px;
+      width: 25px;
     }
 
     img {
