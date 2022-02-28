@@ -54,10 +54,11 @@ export const Pagination = ({
         >
           <IoIosArrowBack className="arrow back" />
         </button>
-        <span className="page-number">
+        <span data-cy="current-page" className="page-number">
           {currentPage} de {totalPages}
         </span>
         <button
+          data-cy="button-pagination"
           className="button-forward"
           onClick={() => {
             if (endGetData < unpagedData.length) {

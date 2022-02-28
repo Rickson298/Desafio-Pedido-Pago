@@ -8,6 +8,7 @@ interface IOptionsHeaderProps {
 interface IMapOptions {
   label: string;
   endPoint: string;
+  name: string;
 }
 
 export const CategoriesDesktop: React.FC<IOptionsHeaderProps> = ({
@@ -16,14 +17,19 @@ export const CategoriesDesktop: React.FC<IOptionsHeaderProps> = ({
   const [width, setWidth] = useState<string>("0px");
   const [currentOption, setCurrentOption] = useState<string>("Colaboradores");
   let options = [
-    { label: "Colaboradores", endPoint: "/agents" },
-    { label: "Cargos", endPoint: "roles" },
+    {
+      label: "Colaboradores",
+      endPoint: "/agents",
+      name: "button-colaboradores",
+    },
+    { label: "Cargos", endPoint: "roles", name: "button-cargos" },
   ];
 
   return (
     <C.Container left={width}>
       {options.map((option: IMapOptions, index: number) => (
         <Category
+          data-cy={option.name}
           color={currentOption === option.label ? "#34423D" : "#A3B8B0"}
           onClick={() => {
             setCurrentOption(option.label);
