@@ -18,11 +18,6 @@ export const Container = styled.div`
     height: 33px;
   }
 
-  .eye-icon {
-    margin-left: 3px;
-    width: 23px;
-  }
-
   .center {
     display: flex;
     align-items: center;
@@ -65,6 +60,7 @@ export const Container = styled.div`
       cursor: pointer;
 
       .eye-icon {
+        margin-left: 5px;
         width: 23px;
       }
 
